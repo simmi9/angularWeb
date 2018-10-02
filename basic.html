@@ -64,6 +64,7 @@ app.controller('myCtrl', function($scope) {
 
 </div>
 -->
+<!--
 <div ng-app="myApp" w3-test-directive></div>
 
 <script> 
@@ -75,5 +76,15 @@ app.directive("w3TestDirective", function() {
     };
 });
 </script>
+
+-->
+<div ng-app="" ng-init="names=['Jani','Hege','Kai']">
+  <ul>
+    <li ng-repeat="x in names">
+      {{ x }}
+    </li>
+  </ul>
+</div>
+
 </body>
 </html>
