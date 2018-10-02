@@ -38,9 +38,16 @@ app.controller('myCtrl', function($scope) {
 });
 </script>
 -->
+<!--
 <div ng-app="" ng-init="myCol='lightgreen'">
 
 <input style="background-color:{{myCol}}" ng-model="myCol">
+
+</div>
+-->
+<div ng-app="" ng-init="quantity=1;cost=5">
+
+<p>Total in dollar: <span ng-bind="quantity * cost"></span></p>
 
 </div>
 </body>
