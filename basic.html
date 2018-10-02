@@ -57,11 +57,23 @@ app.controller('myCtrl', function($scope) {
 
 <p>The name is <span ng-bind="person.lastName"></span></p>
 -->
+<!--
 <div ng-app="" ng-init="points=[1,15,19,2,40]">
 
 <p>The third result is {{ points[2] }}</p>
 
 </div>
+-->
+<div ng-app="myApp" w3-test-directive></div>
 
+<script> 
+var app = angular.module("myApp", []);
+
+app.directive("w3TestDirective", function() {
+    return {
+        template : "I was made in a directive constructor!"
+    };
+});
+</script>
 </body>
 </html>
