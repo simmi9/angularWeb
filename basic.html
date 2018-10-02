@@ -2,11 +2,16 @@
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
-
+<!--
 <div ng-app="">
   <p>Name: <input type="text" ng-model="name"></p>
   <p ng-bind="name"></p>
 </div>
+-->
+<div ng-app="" ng-init="firstname='John'">
+	<p>The name is <span ng-bind="firstname"> </span>span>
+	</p>
+</div>	
 
 </body>
 </html>
