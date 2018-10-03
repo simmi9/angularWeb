@@ -250,7 +250,7 @@ angular.module('myApp', []).controller('namesCtrl', function($scope) {
 });
 </script>
 -->
-
+<!--
 <ul ng-app="myApp" ng-controller="namesCtrl">
     <li ng-repeat="x in names">
         {{x | myFormat}}
@@ -274,6 +274,28 @@ app.filter('myFormat', function() {
 });
 app.controller('namesCtrl', function($scope) {
     $scope.names = ['Jani', 'Carl', 'Margareth', 'Hege', 'Joe', 'Gustav', 'Birgit', 'Mary', 'Kai'];
+});
+
+</script>
+-->
+
+
+<div ng-app="myApp" ng-controller="myCtrl"> 
+
+<p>Today's welcome message is:</p>
+
+<h1>{{myWelcome}}</h1>
+
+</div>
+
+<p>The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.</p>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+	$http.get("welcome.htm".then(function(response)){
+		$scope.myWelcome=reponse.data;
+  });
 });
 </script>
 </body>
