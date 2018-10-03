@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<!--
 <style>
 input.ng-invalid {background-color:lightblue;}
 </style>
+-->
 <body>
 <!--
 <div ng-app="">
@@ -146,8 +148,23 @@ app.directive("w3TestDirective", function() {
 <p>Dirty: {{myForm.myAddress.$dirty}} (if true, the value has been changed).</p>
 <p>Touched: {{myForm.myAddress.$touched}} (if true, the field has been in focus).</p>	
 -->
+<!--
 <form ng-app="myApp" name="myForm">
 	enter yor name: <input name="myName" ng-model="myText" required>
 </form>
+-->
+<div ng-app="myApp" ng-controller="myCtrl">
+    <h1 ng-click="changeName()">{{firstname}}</h1>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstname = "John";
+    $scope.changeName = function() {
+        $scope.firstname = "Nelly";
+    }
+});
+</script>
 </body>
 </html>
