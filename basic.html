@@ -390,9 +390,11 @@ app.controller('customersCtrl', function($scope, $http) {
 
 <select ng-model="selectedCar" ng-options="x.model for x in cars">
 </select>
-
+<select ng-model="selectedCarnew" ng-options="x for (x,y) in cars1">
+</select>
 <h1>You selected: {{selectedCar.model}}</h1>
 <p>Its color is: {{selectedCar.color}}</p>
+<h1>You selected: {{selectedCarnew}}</h1>
 
 </div>
 
@@ -404,6 +406,11 @@ app.controller('myCtrl', function($scope) {
         {model : "Fiat 500", color : "white"},
         {model : "Volvo XC90", color : "black"}
     ];
+    $scope.cars1 = {
+    car01 : "Ford",
+    car02 : "Fiat",
+    car03 : "Volvo"
+};
 });
 </script>
 
