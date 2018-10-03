@@ -153,6 +153,7 @@ app.directive("w3TestDirective", function() {
 	enter yor name: <input name="myName" ng-model="myText" required>
 </form>
 -->
+<!--
 <div ng-app="myApp" ng-controller="myCtrl">
     <h1 ng-click="changeName()">{{firstname}}</h1>
 </div>
@@ -164,6 +165,19 @@ app.controller('myCtrl', function($scope) {
     $scope.changeName = function() {
         $scope.firstname = "Nelly";
     }
+});
+</script>
+-->
+<div ng-app="myApp" ng-controller="personCtrl">
+
+<p>The name is {{ lastName | uppercase }}</p>
+
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('personCtrl', function($scope) {
+	$scope.firstname = "John",
+	$scope.lastName ="Doe"
 });
 </script>
 </body>
