@@ -313,6 +313,7 @@ app.controller('myCtrl', function($scope, $http) {
 <h1 ng-controller="locCtrl">{{myUrl}}</h1>
 <h2 ng-controller="headCtrl">{{myHeader}}</h2>
 <h1>{{theTime}}</h1>
+<h1>{{hex}}</h1>
 </div>
 
 <p>The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.</p>
@@ -339,6 +340,15 @@ app.controller('myCtrl', function($scope, $interval) {
     $interval(function () {
         $scope.theTime = new Date().toLocaleTimeString();
     }, 1000);
+});
+
+app.service('hexafy', function() {
+    this.myFunc = function (x) {
+        return x.toString(16);
+    }
+});
+app.controller('myCtrl', function($scope, hexafy) {
+  $scope.hex = hexafy.myFunc(255);
 });
 
 </script>
