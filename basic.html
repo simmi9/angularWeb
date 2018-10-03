@@ -126,10 +126,20 @@ app.directive("w3TestDirective", function() {
 	$scope.name="John Doe"; });
 </script>
 -->
+<!--
 <form ng-app="myApp" name="myForm">
 	Email: <imput type="Email" ng-model="text" name="myAddress">
 		   <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span>
 </form>
 <p> Angular Js will display error message if entered text is not an email address</p>
+-->
+<form ng-app="myApp" name="myForm" ng-init="myText='abc@yahoo.com'">
+	Email: <imput type="Email" ng-model="myText" name="myAddress" required>
+</form>		
+<p>Edit the e-mail address, and try to change the status.</p>
+<h1>Status</h1>
+<p>Valid: {{myForm.myAddress.$valid}} (if true, the value meets all criteria).</p>
+<p>Dirty: {{myForm.myAddress.$dirty}} (if true, the value has been changed).</p>
+<p>Touched: {{myForm.myAddress.$touched}} (if true, the field has been in focus).</p>	
 </body>
 </html>
