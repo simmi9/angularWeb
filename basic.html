@@ -87,7 +87,7 @@ app.directive("w3TestDirective", function() {
   </ul>
 </div>
 -->
-
+<!--
 <div ng-app="" ng-init="names=[
 {name:'Jani',country:'Norway'},
 {name:'Hege',country:'Sweden'},
@@ -100,5 +100,29 @@ app.directive("w3TestDirective", function() {
 </ul>
 
 </div>
+-->
+<!--
+<div ng-app="myApp" >
+	<w3-test-directive></w3-test-directive>
+</div>
+<script>
+	var app = angular.module("myApp",[])
+	app.directive("w3TestDirective", function(){ 
+	return {
+		rstrict: "EA" ,
+		template: <h1>I am a directive contructor</h1>
+	}; 
+});
+</script>
+-->
+<div ng-app="myApp" ng-controller="myCtrl">
+    Name: <input ng-model="name">
+    <h1>You entered: {{name}}</h1>
+</div>
+<script>
+	var app = angular.module('myApp',[])
+	app.controller('myCtrl', function($scope){ 
+	$scope.name="John Doe"; });
+</script>
 </body>
 </html>
