@@ -305,6 +305,7 @@ app.controller('myCtrl', function($scope, $http) {
 
 </script>
 -->
+<!--
 <div ng-app="myApp" ng-controller="myCtrl"> 
 
 <p>Today's welcome message is:</p>
@@ -361,5 +362,26 @@ app.controller('myCtrl', function($scope) {
     $scope.counts = [255, 251, 200];
 });
 </script>
+-->
+
+<div ng-app="myApp" ng-controller="customersCtrl"> 
+
+<ul>
+  <li ng-repeat="x in myData">
+    {{ x.Name + ', ' + x.Country }}
+  </li>
+</ul>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+  $http.get("customers.php").then(function (response) {
+      $scope.myData = response.data.records;
+  });
+});
+</script>
+
 </body>
 </html>
