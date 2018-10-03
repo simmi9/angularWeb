@@ -115,6 +115,7 @@ app.directive("w3TestDirective", function() {
 });
 </script>
 -->
+<!--
 <div ng-app="myApp" ng-controller="myCtrl">
     Name: <input ng-model="name">
     <h1>You entered: {{name}}</h1>
@@ -124,5 +125,11 @@ app.directive("w3TestDirective", function() {
 	app.controller('myCtrl', function($scope){ 
 	$scope.name="John Doe"; });
 </script>
+-->
+<form ng-app="myApp" name="myForm">
+	Email: <imput type="Email" ng-model="text" name="myAddress">
+		   <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span>
+</form>
+<p> Angular Js will display error message if entered text is not an email address</p>
 </body>
 </html>
