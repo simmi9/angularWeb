@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<style>
+input.ng-invalid {background-color:lightblue;}
+</style>
 <body>
 <!--
 <div ng-app="">
@@ -133,6 +136,7 @@ app.directive("w3TestDirective", function() {
 </form>
 <p> Angular Js will display error message if entered text is not an email address</p>
 -->
+<!--
 <form ng-app="myApp" name="myForm" ng-init="myText='abc@yahoo.com'">
 	Email: <imput type="Email" ng-model="myText" name="myAddress" required>
 </form>		
@@ -141,5 +145,9 @@ app.directive("w3TestDirective", function() {
 <p>Valid: {{myForm.myAddress.$valid}} (if true, the value meets all criteria).</p>
 <p>Dirty: {{myForm.myAddress.$dirty}} (if true, the value has been changed).</p>
 <p>Touched: {{myForm.myAddress.$touched}} (if true, the field has been in focus).</p>	
+-->
+<form ng-app="myApp" name="myForm">
+	enter yor name: <input name="myName" ng-model="myText" required>
+</form>
 </body>
 </html>
