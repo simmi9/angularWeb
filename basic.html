@@ -314,6 +314,7 @@ app.controller('myCtrl', function($scope, $http) {
 <h2 ng-controller="headCtrl">{{myHeader}}</h2>
 <h1>{{theTime}}</h1>
 <h1>{{hex}}</h1>
+<h3 ng-repeat="x in counts"> {{x | myFormat}} </h3>
 </div>
 
 <p>The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.</p>
@@ -347,10 +348,18 @@ app.service('hexafy', function() {
         return x.toString(16);
     }
 });
+
 app.controller('myCtrl', function($scope, hexafy) {
   $scope.hex = hexafy.myFunc(255);
 });
-
+app.filter('myFormat',['hexafy', function(hexafy) {
+    return function(x) {
+        return hexafy.myFunc(x);
+    };
+}]);
+app.controller('myCtrl', function($scope) {
+    $scope.counts = [255, 251, 200];
+});
 </script>
 </body>
 </html>
