@@ -383,7 +383,7 @@ app.controller('customersCtrl', function($scope, $http) {
 });
 </script>
 -->
-
+<!--
 <div ng-app="myApp" ng-controller="myCtrl">
 
 <p>Select a car:</p>
@@ -416,6 +416,27 @@ app.controller('myCtrl', function($scope) {
 
 <p>When you use the ng-options directive to create dropdown lists, the selected value can be an object.</p>
 <p>In this example you can display both the model and the color of the selected element.</p>
+-->
+<div ng-app="myApp" ng-controller="myCtrl">
 
+<button ng-click="myFunc()">Click Me!</button>
+
+<div ng-show="showMe">
+    <h1>Menu:</h1>
+    <div>Pizza</div>
+    <div>Pasta</div>
+    <div>Pesce</div>
+</div>
+
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.showMe = false;
+    $scope.myFunc = function() {
+        $scope.showMe = !$scope.showMe;
+    }
+});
+</script>
 </body>
 </html>
