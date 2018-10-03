@@ -312,6 +312,7 @@ app.controller('myCtrl', function($scope, $http) {
 <h1>{{myWelcome}}</h1>
 <h1 ng-controller="locCtrl">{{myUrl}}</h1>
 <h2 ng-controller="headCtrl">{{myHeader}}</h2>
+<h1>{{theTime}}</h1>
 </div>
 
 <p>The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.</p>
@@ -331,6 +332,13 @@ app.controller('headCtrl', function($scope, $timeout) {
   $timeout(function () {
       $scope.myHeader = "How are you today?";
   }, 2000);
+});
+
+app.controller('myCtrl', function($scope, $interval) {
+    $scope.theTime = new Date().toLocaleTimeString();
+    $interval(function () {
+        $scope.theTime = new Date().toLocaleTimeString();
+    }, 1000);
 });
 
 </script>
