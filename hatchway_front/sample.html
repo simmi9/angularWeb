@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+    <script type="text/javascript" src="sample_controller.js"></script>
+    <style>
+        table 
+        {
+            width: auto;
+            font: 17px Calibri;
+        }
+        table, th, td 
+        {
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+
+        .container {
+  margin-top:100px;
+  border: 1px solid blue;
+  border-right: 1px solid blue;
+ 
+}
+
+.demo {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}
+    </style>
+</head>
+<body>
+    <div ng-app="myApp" 
+        ng-controller="myController">
+        <div class="container">
+
+             <form novalidate>
+                         <input ng-model="id" placeholder="Enter ID">
+                         <input ng-model="name" placeholder="Enter Name">
+                         <input ng-model="type" placeholder="Enter Type">
+                         <input type="submit" ng-click="submitFormBird(id,name,type)" value="Add More Birds">
+
+                       </form
+           <tr> <input type="search" ng-model="q" placeholder="filter birds..." /></tr>
+            <table class="table table-dark">
+                <thead class="thead-dark">
+                <tr>
+                    <th ng-click="orderByMe('ID')">ID</th>
+                    <th ng-click="orderByMe('Name')">Bird Name</th>
+                    <th ng-click="orderByMe('Type')">Type of Bird</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                 <tr ng-repeat="birds in list|filter:q|orderBy:myOrderBy" >
+                   
+                    <td>{{birds.ID}}</td>
+                    <td>{{birds.Name}}</td>
+                    <td>{{birds.Type}}</td>
+                    <td><!--<input type="text" name='description'></input><br/><button ng-click=""></button></td>-->
+                      <form novalidate>
+                         <input ng-model="description" placeholder="eg:found in?">
+                         <input type="submit" ng-click="submitForm(description)" value="Add Description">
+
+                       </form>
+
+                    <td> <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo{{$index}}">About Me</button>
+                        <section id="demo{{$index}}" class="collapse" ng-model="about">
+                       <p> I am {{birds.Name}} , my type is {{birds.Type}} and  I have {{birds.ID}} ID in this table. I'm  {{description}}.</p>
+                        </section>
+
+                    </td>
+                </tr>
+             </table>
+        </div>
+    </div>
+</body>
+</html>
